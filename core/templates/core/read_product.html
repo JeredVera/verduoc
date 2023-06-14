@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+{% block contenido %}
+
+<br><br><br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 m-5">
+            <h2></h2>
+            <hr>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table class="table table-striped table-hover table-responsive-sm">
+                    {{ form | crispy }}
+                    <tr>
+                        <th> Nombre </th>
+                        <th> Precio </th>
+                        <th> Stock </th>
+                        <th> Tipo de Producto </th>
+                        <th> Opciones </th>
+                    </tr>
+                
+                    {% for p in entity %}
+                
+                        <tr>
+                            <td>{{ p.nombre | title }}</td>
+                            <td>${{ p.precio | intcomma }}</td>
+                            <td>{{ p.stock | intcomma }}</td>
+                            <td>{{ p.tipo | title }}</td>
+                            <td> 
+                                <a href="{% url 'update_product' p.id %}" class="btn btn-info btn-sm"> Editar </a>
+                                <a onclick="deleteProducto( {{ p.id }} )" class="btn btn-danger btn-sm">Eliminar </a>
+                            </td>
+                        </tr>
+                
+                    {% endfor %}
+
+                </table>
+                <div>
+                    {% include 'core/paginator.html'%}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<br><br><br>
+
+{% endblock %}

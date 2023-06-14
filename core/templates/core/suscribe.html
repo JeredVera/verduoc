@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+
+<br><br><br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 m-5">
+            <h2> Suscripcion </h2>
+            <hr>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table class="table table-striped table-hover table-responsive-sm">
+                    {{ form | crispy }}
+                    <tr>
+                        <th> Nombre Usuario  </th>
+                        <th> <input type="text" name="" id=""></th>
+                    </tr>
+                    <tr>
+                        <th> Contraseña  </th>
+                        <th> <input type="password" name="" id=""></th>
+                    </tr>
+                    <tr>
+                        <th> Correo Electronico  </th>
+                        <th> <input type="text"></th> 
+                    </tr>
+                    <tr>
+                        <th> Tarjeta Credito/Debito </th>
+                        <th> <input type="number"></th>
+                    </tr>
+                    <tr>
+                        <th> Vencimineto </th>
+                        <th> <input type="date" name="" id=""></th>
+                    </tr>
+                    <tr>
+                        <th> CVV </th>
+                        <th> <input type="number"></th>
+                    </tr>
+                </table>
+                <br>
+                <table>
+                    <tr>
+                        <i class="btn btn-info"><a onclick="suscrito()"></a>Suscribirse</i> 
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+<br><br><br>
+
+{% endblock %}

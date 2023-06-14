@@ -1,0 +1,10 @@
+django == 3.2
+pillow 
+django-admin-interface
+django-crispy-forms
+crispy-bootstrap4
+django-rest-framework
+requests
+pymysql
+mysqlclient
+django-jazzmin

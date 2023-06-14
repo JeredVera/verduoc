@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-12 m-5">
+            <h2> Agregar Producto </h2>
+            <hr>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                   {{ form | crispy }} 
+                </table>
+                <div class="d-flex justify-content-center">
+                    <input type="submit" class="btn btn-primary" value="Guardar">
+                    &nbsp;
+                    <input type="submit" class="btn btn-secondary" value="Cancelar">
+                </div>
+            </form>
+            {{ mensaje }}
+                   
+            <br><br><br><br>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
